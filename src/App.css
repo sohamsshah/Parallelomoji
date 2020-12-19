@@ -47,3 +47,10 @@
   height: 10rem;
   transform: scaleX(-1);
 }
+
+.logo:hover{
+  width: 10rem;
+  height: 10rem;
+  transform: scaleX(1);
+  transition: 0.2s;
+}
