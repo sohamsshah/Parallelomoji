@@ -8,15 +8,17 @@ function App() {
   const [emoji, setEmoji] = useState("");
   const [meaning, setMeaning] = useState("translation will appear here...");
 
+  function searchEmoji(inputEmoji){
+    let emoji = emojiDictionary.find(o => o.emoji === inputEmoji);
+    return emoji;
+
+  }
+
   function changeHandler(event) {
     const inputEmoji = event.target.value;
     setEmoji(inputEmoji);
-
-    if (inputEmoji in emojiDictionary) {
-      setMeaning(emojiDictionary[inputEmoji]);
-    } else {
-      setMeaning("failure to recognise this emoji");
-    }
+    let emojiObj = searchEmoji(inputEmoji);
+    setMeaning(emojiObj.description);
   }
   function emojiClickHandler(inputEmoji) {
     setEmoji(inputEmoji);
