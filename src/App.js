@@ -9,9 +9,11 @@ function App() {
   const [meaning, setMeaning] = useState("translation will appear here...");
   const [parallelEmoji, setParallelEmoji] = useState("");
   const [parallelMeaning, setparallelMeaning] = useState("...here appear will translation");
-
   function searchEmoji(inputEmoji, isParallel){
     let requiredIndex = -1;
+    if(inputEmoji === ""){
+      return "empty"
+    }
     for(var i=1; i<emojiDictionary.length; i++){
       if(emojiDictionary[i].emoji === inputEmoji){
         requiredIndex = i;
@@ -19,7 +21,7 @@ function App() {
       }
     }
     if(requiredIndex === -1){
-      return "" 
+      return "not found" 
     }else{
     if(isParallel){
       return emojiDictionary[(requiredIndex+10)%(emojiDictionary.length)]
@@ -38,9 +40,13 @@ function App() {
     setEmoji(emojiObj.emoji);
     let parallelEmojiObj = searchEmoji(inputEmoji, true);
     setParallelEmoji(parallelEmojiObj.emoji);
-    if(emojiObj === ""){
-      setMeaning("Not an emoji 😅")
-      setparallelMeaning("Not an emoji 😅")
+    if(emojiObj === "not found"){
+      setMeaning("Invalid emoji 😅")
+      setparallelMeaning("Invalid emoji 😅")
+    }
+    else if(emojiObj === "empty"){
+      setMeaning("translation will appear here...")
+      setparallelMeaning("translation will appear here...")
     }else{
       setMeaning(emojiObj.description);
       setparallelMeaning(parallelEmojiObj.description);
@@ -52,8 +58,8 @@ function App() {
     let parallelEmojiObj = searchEmoji(inputEmoji, true);
     setParallelEmoji(parallelEmojiObj.emoji);
     if(emojiObj === ""){
-      setMeaning("Not an emoji 😅")
-      setparallelMeaning("Not an emoji 😅")
+      setMeaning("Invalid emoji 😅")
+      setparallelMeaning("Invalid emoji 😅")
     }else{
       setMeaning(emojiObj.description);
       setparallelMeaning(parallelEmojiObj.description);
@@ -76,9 +82,9 @@ function App() {
           placeholder="Enter your emoji here"
         ></input>
         <span>
-          <button className="search-form__button" aria-label="search">
+          {/* <button className="search-form__button" aria-label="search">
             🔍
-          </button>
+          </button> */}
         </span>
         <div
           style={{

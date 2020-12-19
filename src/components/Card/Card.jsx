@@ -4,13 +4,14 @@ import "./Card.css";
 
 export default function Card(props) {
   return (
+
     <div className="card">
       <div className="container">
-        <h2>
-        {(!props.parallel)? "In our Universe" : "In Parallel Universe"} 
+        <h2 className="card-title">
+        {(!props.parallel)? `  In our Universe   ` : "In Parallel Universe"} 
         </h2>
         <Emoji emoji={props.emoji} />
-        {props.meaning}
+        <h3 className="card-meaning">{props.meaning}</h3>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 function getRandomEmojis(){
   let randomEmojiArray = []
-  for(let i=0; i<5; i++){
+  for(let i=0; i<7; i++){
     let randomNumber = Math.floor(Math.random() * emojiDictionary.length+1);
     randomEmojiArray.push(
       emojiDictionary[randomNumber].emoji

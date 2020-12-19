@@ -27,19 +27,17 @@
 
 /* Input */
 
-.input {
+input {
   width: 20rem;
   border-radius: 2%;
   padding: 0.5rem;
   font-size: 1.1rem;
   margin-left: 20px;
+  
 }
 
-.search-form__button {
-  background-color: white;
-  border: none;
-  font-size: 1.1rem;
-  cursor: pointer;
+input:focus {
+  border-color: yellow;
 }
 
 .logo {
