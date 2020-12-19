@@ -2,7 +2,19 @@ import React, { useState } from "react";
 import "./App.css";
 import emojiDictionary from "./emojipedia";
 import Card from "./components/Card/Card";
-const emojis = Object.keys(emojiDictionary);
+const randomEmojis = getRandomEmojis();
+
+function getRandomEmojis(){
+  let randomEmojiArray = []
+  for(let i=0; i<5; i++){
+    let randomNumber = Math.floor(Math.random() * 1805);
+    randomEmojiArray.push(
+      emojiDictionary[randomNumber].emoji
+    );  
+  }
+  return randomEmojiArray;
+}
+console.log(randomEmojis);
 
 function App() {
   const [emoji, setEmoji] = useState("");
@@ -10,6 +22,9 @@ function App() {
 
   function searchEmoji(inputEmoji){
     let emoji = emojiDictionary.find(o => o.emoji === inputEmoji);
+    if(emoji === undefined){
+      return "Not an Emoji 😅"
+    }
     return emoji;
 
   }
@@ -21,8 +36,9 @@ function App() {
     setMeaning(emojiObj.description);
   }
   function emojiClickHandler(inputEmoji) {
+    let emojiObj = searchEmoji(inputEmoji);
+    setMeaning(emojiObj.description);
     setEmoji(inputEmoji);
-    setMeaning(emojiDictionary[inputEmoji]);
   }
   return (
     <div className="App">
@@ -61,7 +77,7 @@ function App() {
           </div>
         </div>
         <h2> Some Common Emojis </h2>
-        {emojis.map((emoji) => (
+        {randomEmojis.map((emoji) => (
           <span
             onClick={() => emojiClickHandler(emoji)}
             style={{ fontSize: "2rem", padding: "0.5rem", cursor: "pointer" }}
