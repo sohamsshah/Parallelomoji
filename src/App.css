@@ -10,3 +10,38 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+/* Heading */
+
+.header{
+  padding-top: 10%;
+}
+
+.heading-design{
+  color: var(--primary-color);
+  font-size:larger;
+}
+
+.heading-design:hover{
+  color: var(--brown);
+}
+
+/* Input */
+
+.input{
+  width: 20rem;
+  border-radius: 2%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  margin-left: 20px;
+
+}
+
+.search-form__button{
+  background-color: white;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+}
+
+
