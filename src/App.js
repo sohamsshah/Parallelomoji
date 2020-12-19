@@ -1,20 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import emojiDictionary from "./emojipedia";
+import {emojiDictionary, getRandomEmojis} from "./emojipedia";
 import Card from "./components/Card/Card";
 const randomEmojis = getRandomEmojis();
 
-function getRandomEmojis(){
-  let randomEmojiArray = []
-  for(let i=0; i<5; i++){
-    let randomNumber = Math.floor(Math.random() * 1805);
-    randomEmojiArray.push(
-      emojiDictionary[randomNumber].emoji
-    );  
-  }
-  return randomEmojiArray;
-}
-console.log(randomEmojis);
 
 function App() {
   const [emoji, setEmoji] = useState("");
@@ -22,9 +11,6 @@ function App() {
 
   function searchEmoji(inputEmoji){
     let emoji = emojiDictionary.find(o => o.emoji === inputEmoji);
-    if(emoji === undefined){
-      return "Not an Emoji 😅"
-    }
     return emoji;
 
   }
@@ -33,11 +19,20 @@ function App() {
     const inputEmoji = event.target.value;
     setEmoji(inputEmoji);
     let emojiObj = searchEmoji(inputEmoji);
-    setMeaning(emojiObj.description);
+    if(emojiObj === undefined){
+      setMeaning("Not an emoji 😅")
+    }else{
+      setMeaning(emojiObj.description);
+    }
   }
   function emojiClickHandler(inputEmoji) {
     let emojiObj = searchEmoji(inputEmoji);
-    setMeaning(emojiObj.description);
+    if(typeof(emojiObj) === undefined){
+      setMeaning("Not an emoji 😅")
+    }else{
+      setMeaning(emojiObj.description);
+    }
+    
     setEmoji(inputEmoji);
   }
   return (

@@ -1,3 +1,14 @@
+function getRandomEmojis(){
+  let randomEmojiArray = []
+  for(let i=0; i<5; i++){
+    let randomNumber = Math.floor(Math.random() * 1805);
+    randomEmojiArray.push(
+      emojiDictionary[randomNumber].emoji
+    );  
+  }
+  return randomEmojiArray;
+}
+
 const emojiDictionary = [
   {
     emoji: "",
@@ -22656,6 +22667,6 @@ const emojiDictionary = [
   }
 ]
 
-export default emojiDictionary;
+export {emojiDictionary, getRandomEmojis};
 
   
