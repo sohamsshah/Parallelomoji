@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import emojiDictionary from "./emojipedia";
-import Card from "./../components/Card/Card";
+import Card from "./components/Card/Card";
 const emojis = Object.keys(emojiDictionary);
 
 function App() {

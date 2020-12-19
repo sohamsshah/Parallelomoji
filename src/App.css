@@ -1,47 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
 
-:root{
+:root {
   --primary-color: #fc8621;
   --brown: #c24914;
 }
 
 .App {
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 /* Heading */
 
-.header{
+.header {
   padding-top: 10%;
 }
 
-.heading-design{
+.heading-design {
   color: var(--primary-color);
-  font-size:larger;
+  font-size: larger;
 }
 
-.heading-design:hover{
+.heading-design:hover {
   color: var(--brown);
 }
 
 /* Input */
 
-.input{
+.input {
   width: 20rem;
   border-radius: 2%;
   padding: 0.5rem;
   font-size: 1.1rem;
   margin-left: 20px;
-
 }
 
-.search-form__button{
+.search-form__button {
   background-color: white;
   border: none;
   font-size: 1.1rem;
   cursor: pointer;
-
 }
 
-
+.logo {
+  width: 10rem;
+  height: 10rem;
+  transform: scaleX(-1);
+}

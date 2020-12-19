@@ -1,6 +1,6 @@
 import React from "react";
-import Emoji from "./../Emoji/Emoji";
-import "./../Card/Card.css";
+import Emoji from "../Emoji/Emoji";
+import "./Card.css";
 
 export default function Card(props) {
   return (
