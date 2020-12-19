@@ -89,10 +89,10 @@ function App() {
           }}
         >
           <div style={{ paddingRight: "2.5rem" }}>
-            <Card emoji={emoji} meaning={meaning} />
+            <Card emoji={emoji} meaning={meaning} parallel={false} />
           </div>
           <div style={{ paddingLeft: "2.5rem" }}>
-            <Card emoji={parallelEmoji} meaning={parallelMeaning} />
+            <Card emoji={parallelEmoji} meaning={parallelMeaning} parallel={true} />
           </div>
         </div>
         <h2> Some Common Emojis </h2>

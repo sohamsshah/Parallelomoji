@@ -6,7 +6,9 @@ export default function Card(props) {
   return (
     <div className="card">
       <div className="container">
-        <h2> In our Universe </h2>
+        <h2>
+        {(!props.parallel)? "In our Universe" : "In Parallel Universe"} 
+        </h2>
         <Emoji emoji={props.emoji} />
         {props.meaning}
       </div>
