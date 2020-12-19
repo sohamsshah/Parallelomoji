@@ -4,36 +4,60 @@ import {emojiDictionary, getRandomEmojis} from "./emojipedia";
 import Card from "./components/Card/Card";
 const randomEmojis = getRandomEmojis();
 
-
 function App() {
   const [emoji, setEmoji] = useState("");
   const [meaning, setMeaning] = useState("translation will appear here...");
+  const [parallelEmoji, setParallelEmoji] = useState("");
+  const [parallelMeaning, setparallelMeaning] = useState("...here appear will translation");
 
-  function searchEmoji(inputEmoji){
-    let emoji = emojiDictionary.find(o => o.emoji === inputEmoji);
-    return emoji;
+  function searchEmoji(inputEmoji, isParallel){
+    let requiredIndex = -1;
+    for(var i=1; i<emojiDictionary.length; i++){
+      if(emojiDictionary[i].emoji === inputEmoji){
+        requiredIndex = i;
+        break;
+      }
+    }
+    if(requiredIndex === -1){
+      return "" 
+    }else{
+    if(isParallel){
+      return emojiDictionary[(requiredIndex+10)%(emojiDictionary.length)]
+    }
+    else{
+      return emojiDictionary[requiredIndex];
+    }
+  }
+
 
   }
 
   function changeHandler(event) {
     const inputEmoji = event.target.value;
-    setEmoji(inputEmoji);
-    let emojiObj = searchEmoji(inputEmoji);
-    if(emojiObj === undefined){
+    let emojiObj = searchEmoji(inputEmoji, false);
+    setEmoji(emojiObj.emoji);
+    let parallelEmojiObj = searchEmoji(inputEmoji, true);
+    setParallelEmoji(parallelEmojiObj.emoji);
+    if(emojiObj === ""){
       setMeaning("Not an emoji 😅")
+      setparallelMeaning("Not an emoji 😅")
     }else{
       setMeaning(emojiObj.description);
+      setparallelMeaning(parallelEmojiObj.description);
     }
   }
   function emojiClickHandler(inputEmoji) {
-    let emojiObj = searchEmoji(inputEmoji);
-    if(typeof(emojiObj) === undefined){
+    let emojiObj = searchEmoji(inputEmoji, false);
+    setEmoji(emojiObj.emoji);
+    let parallelEmojiObj = searchEmoji(inputEmoji, true);
+    setParallelEmoji(parallelEmojiObj.emoji);
+    if(emojiObj === ""){
       setMeaning("Not an emoji 😅")
+      setparallelMeaning("Not an emoji 😅")
     }else{
       setMeaning(emojiObj.description);
+      setparallelMeaning(parallelEmojiObj.description);
     }
-    
-    setEmoji(inputEmoji);
   }
   return (
     <div className="App">
@@ -68,7 +92,7 @@ function App() {
             <Card emoji={emoji} meaning={meaning} />
           </div>
           <div style={{ paddingLeft: "2.5rem" }}>
-            <Card emoji={emoji} meaning={meaning} />
+            <Card emoji={parallelEmoji} meaning={parallelMeaning} />
           </div>
         </div>
         <h2> Some Common Emojis </h2>
