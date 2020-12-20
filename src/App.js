@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import {emojiDictionary, getRandomEmojis} from "./emojipedia";
+import {emojiDictionary, getRandomEmojis, searchEmoji} from "./emojipedia";
 import Card from "./components/Card/Card";
+import Navbar from './components/Navbar/Navbar'
 const randomEmojis = getRandomEmojis();
 
 function App() {
@@ -9,31 +10,7 @@ function App() {
   const [meaning, setMeaning] = useState("translation will appear here...");
   const [parallelEmoji, setParallelEmoji] = useState("");
   const [parallelMeaning, setparallelMeaning] = useState("...here appear will translation");
-  function searchEmoji(inputEmoji, isParallel){
-    let requiredIndex = -1;
-    if(inputEmoji === ""){
-      return "empty"
-    }
-    for(var i=1; i<emojiDictionary.length; i++){
-      if(emojiDictionary[i].emoji === inputEmoji){
-        requiredIndex = i;
-        break;
-      }
-    }
-    if(requiredIndex === -1){
-      return "not found" 
-    }else{
-    if(isParallel){
-      return emojiDictionary[(requiredIndex+10)%(emojiDictionary.length)]
-    }
-    else{
-      return emojiDictionary[requiredIndex];
-    }
-  }
-
-
-  }
-
+  
   function changeHandler(event) {
     const inputEmoji = event.target.value;
     let emojiObj = searchEmoji(inputEmoji, false);
@@ -67,7 +44,8 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="header">
+      <Navbar />
+      <div className="content">
         <img
           className="logo"
           src="https://upload.wikimedia.org/wikipedia/en/0/03/Emojipedia_logo.png"

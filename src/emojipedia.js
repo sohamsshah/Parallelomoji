@@ -9,6 +9,32 @@ function getRandomEmojis(){
   return randomEmojiArray;
 }
 
+function searchEmoji(inputEmoji, isParallel){
+  let requiredIndex = -1;
+  if(inputEmoji === ""){
+    return "empty"
+  }
+  for(var i=1; i<emojiDictionary.length; i++){
+    if(emojiDictionary[i].emoji === inputEmoji){
+      requiredIndex = i;
+      break;
+    }
+  }
+  if(requiredIndex === -1){
+    return "not found" 
+  }else{
+  if(isParallel){
+    return emojiDictionary[(requiredIndex+10)%(emojiDictionary.length)]
+  }
+  else{
+    return emojiDictionary[requiredIndex];
+  }
+}
+
+
+}
+
+
 const emojiDictionary = [
   {
     emoji: "",
@@ -22667,6 +22693,6 @@ const emojiDictionary = [
   }
 ]
 
-export {emojiDictionary, getRandomEmojis};
+export {emojiDictionary, getRandomEmojis, searchEmoji};
 
   
