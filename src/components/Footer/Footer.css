@@ -1,0 +1,36 @@
+ul{
+    padding-inline-start: 0px;
+
+}
+.quote{
+    color:var(--blue);
+    font-style: italic;
+    font-weight:100;
+}
+.footer{
+    background-color: var(--dark-gray);
+    /* padding: 1rem 1rem;
+    padding-bottom: 0rem; */
+    text-align: center;
+    color: var(--primary-color);
+    border-top-right-radius: 1rem;
+}
+
+.footer h1{
+    margin: 0.5rem;
+}
+
+.footer .link{
+    color: var(--off-white);
+}
+
+.list-non-bullet{
+    list-style-type: none;
+    
+}
+
+.list-item-inline{
+    display: inline;
+    padding-right: 0.5rem;
+
+}

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import {emojiDictionary, getRandomEmojis, searchEmoji} from "./emojipedia";
+import {getRandomEmojis, searchEmoji} from "./emojipedia";
 import Card from "./components/Card/Card";
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 const randomEmojis = getRandomEmojis();
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
           </span>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
