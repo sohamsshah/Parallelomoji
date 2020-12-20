@@ -49,6 +49,7 @@ function App() {
       <div className="content">
         <img
           className="logo"
+          alt="logo"
           src="https://upload.wikimedia.org/wikipedia/en/0/03/Emojipedia_logo.png"
         ></img>
         <h1>
