@@ -4,6 +4,8 @@
   --primary-color: #fc8621;
   --brown: #c24914;
   --blue: #91ccec;
+  --dark-blue:rgb(6, 6, 173);
+  --light-blue: #0495e4; 
 }
 
 .App {
@@ -14,7 +16,7 @@
 /* Heading */
 
 .content {
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .heading-design {

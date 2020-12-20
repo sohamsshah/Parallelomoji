@@ -12,6 +12,15 @@
     
 }
 
+.navbar-heading-design {
+    color: var(--dark-blue);
+    font-size: larger;
+  }
+  
+  .navbar-heading-design:hover {
+    color: var(--light-blue);
+  }
+
 .list-non-bullet{
     list-style-type: none;
 }
