@@ -1,5 +1,5 @@
 # Parallelomojipedia
-Know what will be the meaning of your favourite emojis in Parallel Universe.!
+Know what will be the meaning of your favourite emojis in Parallel Universe!
 
 Live website: [Parallelomojipedia](https://parallelomojipedia.netlify.app/)
 
